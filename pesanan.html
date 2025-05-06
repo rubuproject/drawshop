@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Order Artwork - Elegant Art Gallery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@300;600&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #faf9f7;
+    color: #2e2e2e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header with navigation */
+  header {
+    background: #1a1a1a;
+    padding: 1em 2em;
+    color: #f4f1ee;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .logo {
+    cursor: default;
+  }
+  nav a {
+    color: #f4f1ee;
+    text-decoration: none;
+    margin-left: 1.6em;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a:focus {
+    color: #a43e3e;
+    outline: none;
+  }
+
+  main {
+    flex-grow: 1;
+    padding: 2em 1em 4em;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgb(0 0 0 / 0.15);
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 1em;
+    color: #464646;
+    letter-spacing: 0.08em;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 0.25em;
+    font-weight: 600;
+    color: #3b3b3b;
+  }
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    padding: 0.6em 0.75em;
+    margin-bottom: 1.2em;
+    font-size: 1rem;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    transition: border-color 0.3s ease;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  textarea:focus {
+    border-color: #a43e3e;
+    outline: none;
+  }
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  /* File input styling */
+  .file-input-container {
+    position: relative;
+    margin-bottom: 1.2em;
+  }
+  input[type="file"] {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    border: 1.8px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5em;
+    width: 100%;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  input[type="file"]:focus {
+    border-color: #a43e3e;
+    outline: none;
+  }
+  .file-info {
+    font-size: 0.9rem;
+    color: #5a5a5a;
+    margin-top: 0.25em;
+    font-style: italic;
+  }
+
+  button.submit-btn {
+    background: #a43e3e;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.75em 1.5em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    align-self: center;
+    transition: background 0.3s ease;
+  }
+  button.submit-btn:hover {
+    background: #7c2a2a;
+  }
+
+  .thankyou-msg {
+    margin-top: 1em;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: #4a4a4a;
+    text-align: center;
+  }
+
+  @media (max-width: 480px) {
+    main {
+      margin: 1em;
+      padding: 1.5em 1em 3em;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" tabindex="0" aria-label="Elegant Art Gallery Home">Elegant Art Gallery</div>
+  <nav>
+    <a href="index.html" aria-label="Go to homepage">Home</a>
+    <a href="order.html" aria-current="page" aria-label="You are on the order page">Order</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Place Your Order</h1>
+  <form id="orderForm" aria-describedby="formInstructions" enctype="multipart/form-data" novalidate>
+    <p id="formInstructions" style="font-weight: 300; color: #5a5a5a; margin-bottom: 1.5em;">
+      Fill in your details below and upload an example image of the artwork you want. We will contact you soon!
+    </p>
+
+    <label for="name">Full Name <span aria-hidden="true" style="color:#a43e3e;">*</span></label>
+    <input type="text" id="name" name="name" required placeholder="Your full name" />
+
+    <label for="email">Email Address <span aria-hidden="true" style="color:#a43e3e;">*</span></label>
+    <input type="email" id="email" name="email" required placeholder="you@example.com" />
+
+    <label for="artwork">Artwork Title or ID <span aria-hidden="true" style="color:#a43e3e;">*</span></label>
+    <input type="text" id="artwork" name="artwork" required placeholder="E.g. Colorful Abstract" />
+
+    <label for="quantity">Quantity <span aria-hidden="true" style="color:#a43e3e;">*</span></label>
+    <input type="text" id="quantity" name="quantity" required pattern="^\d+$" placeholder="Number of pieces" title="Please enter a valid number" />
+
+    <label for="imageUpload">Upload Example Image <span aria-hidden="true" style="color:#a43e3e;">*</span></label>
+    <div class="file-input-container">
+      <input type="file" id="imageUpload" name="imageUpload" accept="image/*" aria-describedby="fileHelp" required />
+      <div id="fileHelp" class="file-info" aria-live="polite"></div>
+    </div>
+
+    <label for="message">Additional Message (optional)</label>
+    <textarea id="message" name="message" placeholder="Any specific requests or questions..."></textarea>
+
+    <button type="submit" class="submit-btn" aria-label="Submit order form">Submit Order</button>
+  </form>
+
+  <div id="thankyou" class="thankyou-msg" role="alert" style="display:none;"></div>
+</main>
+
+<script>
+  const form = document.getElementById('orderForm');
+  const thankyou = document.getElementById('thankyou');
+  const fileInput = document.getElementById('imageUpload');
+  const fileHelp = document.getElementById('fileHelp');
+
+  // Show selected file name
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files.length > 0) {
+      const file = fileInput.files[0];
+      fileHelp.textContent = `Selected file: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+    } else {
+      fileHelp.textContent = '';
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const artwork = form.artwork.value.trim();
+    const quantity = form.quantity.value.trim();
+    const message = form.message.value.trim();
+    const file = fileInput.files[0];
+
+    if (!file) {
+      fileHelp.textContent = 'Please upload an example image file.';
+      fileInput.focus();
+      return;
+    }
+
+    // Check file type again
+    if (!file.type.startsWith('image/')) {
+      fileHelp.textContent = 'Uploaded file must be an image.';
+      fileInput.focus();
+      return;
+    }
+
+    // Simulate order submission
+    thankyou.style.display = 'block';
+    thankyou.textContent = `Thank you, ${name}! Your order for '${artwork}' (Quantity: ${quantity}) with the uploaded image '${file.name}' has been received. We will contact you shortly at ${email}.`;
+
+    form.reset();
+    fileHelp.textContent = '';
+    form.querySelector('button[type="submit"]').disabled = true;
+
+    setTimeout(() => {
+      thankyou.style.display = 'none';
+      form.querySelector('button[type="submit"]').disabled = false;
+    }, 12000);
+  });
+</script>
+
+</body>
+</html>
+

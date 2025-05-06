@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Elegant Art Store - Exclusive Paintings & Prints</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@300;600&display=swap');
+
+  /* Reset and base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #faf9f7;
+    color: #2e2e2e;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Header with navigation */
+  header {
+    background: #1a1a1a;
+    padding: 1em 2em;
+    color: #f4f1ee;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-align: left;
+    letter-spacing: 0.1em;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header .logo {
+    cursor: default;
+  }
+  nav a {
+    color: #f4f1ee;
+    text-decoration: none;
+    margin-left: 1.6em;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a:focus {
+    color: #a43e3e;
+    outline: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: url('https://images.pexels.com/photos/1779486/pexels-photo-1779486.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940') center center/cover no-repeat;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f4f1ee;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    padding: 2em 1em;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin: 0.2em 0;
+  }
+  .hero p {
+    font-size: 1.3rem;
+    max-width: 460px;
+    margin-bottom: 1em;
+    font-weight: 300;
+  }
+  .btn-hero {
+    background: #f4f1ee;
+    color: #1a1a1a;
+    padding: 0.75em 2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 6px 10px rgb(0 0 0 / 0.25);
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+  .btn-hero:hover {
+    background: #c9c7be;
+    transform: translateY(-3px);
+  }
+
+  /* Main gallery section */
+  main {
+    flex-grow: 1;
+    padding: 2em 1em 4em;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  main h2 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 1.2em;
+    color: #464646;
+    letter-spacing: 0.08em;
+  }
+
+  /* Gallery grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1.6em;
+  }
+
+  /* Individual artwork card */
+  .art-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 15px rgb(0 0 0 / 0.12);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  .art-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 25px rgb(0 0 0 / 0.3);
+  }
+
+  .art-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  .art-info {
+    padding: 1em 1.2em 1.4em;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .art-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 0 0 0.4em;
+    color: #2b2b2b;
+  }
+  .art-desc {
+    flex-grow: 1;
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin-bottom: 0.8em;
+    color: #5a5a5a;
+  }
+  .art-price {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #a43e3e;
+  }
+  .btn-buy {
+    margin-top: 0.8em;
+    background: #a43e3e;
+    border: none;
+    padding: 0.6em 1.4em;
+    border-radius: 30px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    user-select: none;
+  }
+  .btn-buy:hover {
+    background: #7c2a2a;
+  }
+
+  /* Footer */
+  footer {
+    background: #1a1a1a;
+    color: #f4f1ee;
+    padding: 1em 1em 2em;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 300;
+  }
+  footer a {
+    color: #f4f1ee;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: 600;
+  }
+  footer a:hover {
+    color: #a43e3e;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    header {
+      font-size: 1.4rem;
+      padding: 1em 1.2em;
+    }
+    nav a {
+      font-size: 0.9rem;
+      margin-left: 1em;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+    }
+    .hero p {
+      font-size: 1rem;
+    }
+    .btn-hero {
+      padding: 0.6em 1.5em;
+      font-size: 0.9rem;
+    }
+    .art-card img {
+      height: 150px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" tabindex="0" aria-label="Elegant Art Gallery Home">Elegant Art Gallery</div>
+  <nav>
+    <a href="index.html" aria-current="page" aria-label="You are on the homepage">Home</a>
+    <a href="pesanan.html" aria-label="Go to order page">Order</a>
+  </nav>
+</header>
+
+<section class="hero" role="banner" aria-label="Welcome banner">
+  <h1>Discover Unique Paintings & Prints</h1>
+  <p>Exclusive collection of original artworks crafted with passion.</p>
+  <a href="#gallery" class="btn-hero">Explore Artworks</a>
+</section>
+
+<main>
+  <h2 id="gallery">Featured Artworks for Sale</h2>
+  <section class="gallery" aria-label="Artworks for sale">
+    <article class="art-card" tabindex="0" aria-describedby="desc1 price1">
+      <img src="https://images.pexels.com/photos/3771086/pexels-photo-3771086.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=600" alt="Colorful Abstract Painting" />
+      <div class="art-info">
+        <h3 class="art-title">Colorful Abstract</h3>
+        <p id="desc1" class="art-desc">Vibrant abstract acrylic painting full of energy and movement.</p>
+        <div>Price: <span id="price1" class="art-price">$450</span></div>
+        <button class="btn-buy" aria-label="Buy Colorful Abstract painting for 450 dollars" onclick="alert('Thank you for showing interest in Colorful Abstract! Please visit the Order page to complete your purchase.')">Buy Now</button>
+      </div>
+    </article>
+
+    <article class="art-card" tabindex="0" aria-describedby="desc2 price2">
+      <img src="https://images.pexels.com/photos/936055/pexels-photo-936055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=600" alt="Landscape Oil Painting" />
+      <div class="art-info">
+        <h3 class="art-title">Sunset Landscape</h3>
+        <p id="desc2" class="art-desc">Tranquil oil painting showcasing a breathtaking sunset scene.</p>
+        <div>Price: <span id="price2" class="art-price">$620</span></div>
+        <button class="btn-buy" aria-label="Buy Sunset Landscape painting for 620 dollars" onclick="alert('Thank you for showing interest in Sunset Landscape! Please visit the Order page to complete your purchase.')">Buy Now</button>
+      </div>
+    </article>
+
+    <article class="art-card" tabindex="0" aria-describedby="desc3 price3">
+      <img src="https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=600" alt="Modern Minimalist Art" />
+      <div class="art-info">
+        <h3 class="art-title">Minimalist Shadows</h3>
+        <p id="desc3" class="art-desc">Sophisticated minimalist piece with soft tonal contrasts.</p>
+        <div>Price: <span id="price3" class="art-price">$370</span></div>
+        <button class="btn-buy" aria-label="Buy Minimalist Shadows painting for 370 dollars" onclick="alert('Thank you for showing interest in Minimalist Shadows! Please visit the Order page to complete your purchase.')">Buy Now</button>
+      </div>
+    </article>
+
+    <article class="art-card" tabindex="0" aria-describedby="desc4 price4">
+      <img src="https://images.pexels.com/photos/2038813/pexels-photo-2038813.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=450&w=600" alt="Classic Portrait Painting" />
+      <div class="art-info">
+        <h3 class="art-title">Classic Elegance</h3>
+        <p id="desc4" class="art-desc">Timeless portrait with refined brush strokes and warm tones.</p>
+        <div>Price: <span id="price4" class="art-price">$900</span></div>
+        <button class="btn-buy" aria-label="Buy Classic Elegance painting for 900 dollars" onclick="alert('Thank you for showing interest in Classic Elegance! Please visit the Order page to complete your purchase.')">Buy Now</button>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Elegant Art Gallery | <a href="mailto:contact@elegantartgallery.com">Contact</a> | 
+  <a href="https://instagram.com/elegantartgallery" target="_blank" rel="noopener noreferrer">Instagram</a> | 
+  <a href="https://facebook.com/elegantartgallery" target="_blank" rel="noopener noreferrer">Facebook</a>
+</footer>
+
+</body>
+</html>
+
